@@ -1,0 +1,23 @@
+{
+ "name": "flare",
+ "children": [
+  {
+   "name": "浏览数",
+   "children": [
+      {"name": "友情链接", "size": 519},
+      {"name": "站内跳转", "size": 2787},
+      {"name": "直接输入", "size": 465},
+      {"name": "搜索引擎", "size": 0}
+     ]
+  },
+  {
+    "name": "访问数",
+    "children": [
+      {"name": "友情链接", "size": 219},
+      {"name": "站内跳转", "size": 397},
+      {"name": "直接输入", "size": 249},
+      {"name": "搜索引擎", "size": 0}
+    ]
+  }
+ ]
+}

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bar chart</title>
+	<style type="text/css">
+	body,div{margin:0; padding: 0;}
+	.chart{ width: 80%; margin: 40px auto 0; border: 1px solid #ddd; }
+	.svg{ background: #fff; margin-top:20px; margin-left: 20px; width: 98%; height: 400px;}
+	.stext{color:#666; opacity: 0.5;}
+	</style>
+	<script type="text/javascript" src="./js/lib/d3.v3.js"></script>
+	<script type="text/javascript" src="./js/util/namespace.js"></script>
+	<script type="text/javascript" src="./js/util/barChart.js"></script>
+</head>
+<body>
+	<div id="chart" class="chart"></div>
+
+	<script type="text/javascript">
+
+	(function(window){
+
+		var opt ={
+			xAxis : {
+				categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania']
+			},
+			yAxis: {
+	        	title: {
+	            	text: 'Population (millions)'
+	            }
+	        },
+			series : [{
+					name: 'Year 1800',
+	                data: [133, 156, 947, 408, 6]
+	            }]
+			};
+
+		jh.util.barChart(opt,'chart');
+
+	})(window);
+	</script>
+</body>
+</html>

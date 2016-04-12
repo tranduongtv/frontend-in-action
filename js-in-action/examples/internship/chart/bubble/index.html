@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bubble Chart</title>
+	<script type="text/javascript" src="../js/d3.v3.js"></script>
+	<style>
+	.text,text {
+	  font: 10px sans-serif;
+	  color: #666;
+	}
+	.bubbles{border:1px solid #ccc; width: 500px; margin: 0 auto;}
+	</style>
+</head>
+<body>
+	<div class="bubbles"></div>
+
+	<script>
+
+	var jsonData = {
+		 "name": "flare",
+		 "children": [
+		  {
+		   "name": "浏览数",
+		   "children": [
+		      {"name": "友情链接", "size": 519},
+		      {"name": "站内跳转", "size": 2787},
+		      {"name": "直接输入", "size": 465},
+		      {"name": "搜索引擎", "size": 0}
+		     ]
+		  },
+		  {
+		    "name": "访问数",
+		    "children": [
+		      {"name": "友情链接", "size": 219},
+		      {"name": "站内跳转", "size": 397},
+		      {"name": "直接输入", "size": 249},
+		      {"name": "搜索引擎", "size": 0}
+		    ]
+		  },
+		  {
+		    "name": "跳跃数",
+		    "children": [
+		      {"name": "友情链接", "size": 209},
+		      {"name": "站内跳转", "size": 387},
+		      {"name": "直接输入", "size": 229},
+		      {"name": "搜索引擎", "size": 0}
+		    ]
+		  }
+		 ]
+	};
+
+	var diameter = 480,
+	    format = d3.format(",d"),
+	    color = ['#058dc7', '#50b432', '#ed561b', '#edef00', '#24cbe5', '#64e572', '#ff9655', '#fff263', '#6af9c4', '#b2deff', '#cccccc'];
+	    //color = d3.scale.category20();
+
+	var bubble = d3.layout.pack()
+	    .sort(null)
+	    .size([diameter, diameter])
+	    .padding(1.5);
+
+	var svg = d3.select(".bubbles").append("svg")
+	    .attr("width", diameter)
+	    .attr("height", diameter)
+	    .attr("class", "bubble");
+
+    function drawChart(data){
+      var measures = data.children[0].children.length;
+	  var node = svg.selectAll(".node")
+	      .data(bubble.nodes(classes(data))
+	      .filter(function(d) { return !d.children; }))
+	      .enter().append("g")
+	      .attr("class", "node")
+	      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+	  node.append("title")
+	      .text(function(d) { return d.className + ": " + format(d.value); });
+
+	  node.append("circle")
+	      .attr("r", function(d) { return d.r; })
+	      .style("fill", function(d,i) { console.log(i/measures); return color[Math.floor(i/measures)]; });
+
+	  node.append("text")
+	      .attr("dy", ".3em")
+	      .style("text-anchor", "middle")
+	      .text(function(d) { return d.className.substring(0, d.r / 3); });
+
+	  var catagory = [];
+
+	  for(var i=0,len=data.children.length;i<len;i++){
+	  	   catagory.push(data.children[i].name);
+	  }
+	  for(var j=0,length=catagory.length;j<length;j++){
+	  		var legend = svg.append('g')
+	  			         .attr("transform","translate("+((diameter/(length+1))*(j+1))+","+(diameter-20)+")");
+	  			legend.append('circle')
+	  				  .attr('r',10)
+	  				  .style("fill",function(){return color[j];});
+	  			legend.append("text")
+	  				  .attr('class',"text")
+	  				  .attr("dy","0.3em")
+	  				  .attr("dx","1em")
+	  				  .style("text-anchor","begin-start")
+	  				  .text(catagory[j]);
+	  }
+
+	};
+
+	drawChart(jsonData);
+
+	// Returns a flattened hierarchy containing all leaf nodes under the root.
+	function classes(root) {
+	  var classes = [];
+
+	  function recurse(name, node) {
+	    if (node.children) node.children.forEach(function(child) { recurse(node.name, child); });
+	    else classes.push({packageName: name, className: node.name, value: node.size});
+	  }
+
+	  recurse(null, root);
+	  return {children: classes};
+	}
+
+	</script>
+
+</body>
+</html>

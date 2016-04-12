@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Manipulating classes and attributes</title>
+	<style>
+		.square {
+			width: 100px;
+			height: 100px;
+			margin-bottom: 20px;
+			border: 1px solid grey;
+			border-radius: 5px;
+		}
+		.hidden {
+			visibility: hidden;
+		}
+		.red {
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="myDiv" class="square"></div>
+	<button>Display id</button>
+	<button>Display classes</button>
+	<button>Color red</button>
+	<button>Toggle visiblity</button>
+	<script>
+		var btn = document.querySelectorAll('button');
+		var div = document.querySelector('#myDiv');
+
+		btn[0].addEventListener('click', function() {
+			console.log(div.id);
+		});
+
+		var classes = div.classList;
+
+		btn[1].addEventListener('click', function() {
+			console.log(classes);
+		});
+
+		btn[2].addEventListener('click', function() {
+			classes.add('red');
+		});
+
+		btn[3].addEventListener('click', function() {
+			classes.toggle('hidden');
+		});
+	</script>
+</body>
+</html>

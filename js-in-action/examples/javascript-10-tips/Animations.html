@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Animations</title>
+	<link rel="stylesheet" href="./css/animate.css" />
+	<style>
+		body {
+			text-align: center;
+		}
+		#circle {
+			border-radius: 50%;
+			margin: 50px auto;
+			width: 50px;
+			height: 50px;
+			background-color: #93d0ea;
+		}
+	</style>
+</head>
+<body>
+	<button data-animation="bounce">Bounce</button>
+	<button data-animation="pulse">Pulse</button>
+	<button data-animation="fadeInLeftBig">Fade in</button>
+	<button data-animation="fadeOutRightBig">Fade out</button>
+	<button data-animation="flip">Flip</button>
+
+	<div id="circle"></div>
+	<script>
+		var btn = document.querySelectorAll('button');
+		var circle = document.querySelector('#circle');
+
+		circle.classList.add('animated');
+
+		for (var i = 0; i < btn.length; i++) {
+			(function(i) {
+				btn[i].addEventListener('click', function() {
+					var animation = btn[i].getAttribute('data-animation');
+					circle.classList.add(animation);
+
+					window.setTimeout(function() {
+						circle.classList.remove(animation);
+					}, 2000);
+				});
+			})(i);
+		};
+	</script>
+</body>
+</html>

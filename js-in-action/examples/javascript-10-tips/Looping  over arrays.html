@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Looping  over arrays</title>
+</head>
+<body>
+	<script>
+		var ninjaTurtles = ['Donatello', 'Leonardo', 'Michelangelo', 'Raphael'];
+
+		ninjaTurtles.forEach(function(entry) {
+			console.log(entry);
+		});
+
+		var lovesPizza = ninjaTurtles.map(function(entry) {
+			return entry.concat(' loves pizza!');
+		});
+		console.log(lovesPizza);
+	</script>
+</body>
+</html>

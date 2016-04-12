@@ -1,0 +1,180 @@
+html {
+	font-size: 62.5%;
+}
+.header {
+	padding: 40.5% 2.25% 2.25% 2.25%;
+	background-color: #afdff7;
+	background-image: url(./images/top-bg.png);
+	background-repeat: no-repeat;
+	background-position: center 0;
+	background-size: contain;
+}
+.header-content {
+	width: 100%;
+	background-color: #fff;
+	border-radius: 6px;
+	font-size: 1.8rem;
+}
+.header-tips {
+	margin: 0 2.5%;
+	padding: 2.5% 2%;
+	line-height: 1.5em;
+	font-size: 1.5rem;
+	border-radius: 6px;
+	background-color: #d9ebf8;
+}
+.header-content ul {
+	margin: 2.25% 4.25% 3.125%;
+}
+.header .header-order {
+	display: inline-block;
+	margin-right: 0.75%;
+	width: 3.2rem;
+	height: 3.2rem;
+	line-height: 3.2rem;
+	border-radius: 50%;
+	color: #fff;
+	background-color: #1F64B1;
+	text-align: center;
+	font-style: italic;
+}
+.header .header-star {
+	color: #f00;
+}
+.header .header-options {
+	overflow: hidden;
+}
+.header .header-options li {
+	float: left;
+	margin-right: 1.25%;
+	margin-bottom: 0.75%;
+	line-height: 2;
+}
+.header .header-radio {
+	height: 4%;
+	padding-left: 6.75%;
+	background: url(./images/icon-radio.png) no-repeat 0 center;
+	background-size: contain;
+	cursor: pointer;
+}
+.header .header-radio.active {
+	background-image: url(./images/icon-radio-active.png);
+}
+.header .header-checkbox {
+	height: 4.25%;
+	padding-left: 6.75%;
+	background: url(./images/icon-checkbox.png) no-repeat 0 center;
+	background-size: contain;
+	cursor: pointer;
+}
+.header .header-checkbox.active {
+	background-image: url(./images/icon-chekbox-active.png);
+}
+.header .header-textarea {
+	margin: 1.875% 0 1.25% 4.75%;
+}
+.header .header-textarea textarea {
+	width: 90%;
+	padding: 8px;
+	border: 1px solid #288FD9;
+	background-image: -moz-linear-gradient(top, #fff, #E5E8EA); /* Firefox */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(0.5, #FDFDFD), color-stop(1, #E5E8EA)); /* Saf4+, Chrome */
+}
+.header .header-multiselect {
+	font-size: 15px;
+	color: #999;
+}
+.header .header-thanks {
+	margin-left: 4.75%;
+	padding-top: 1.5%;
+	line-height: 2;
+	background-image: -moz-linear-gradient(left, #fff, #D4FAED); /* Firefox */
+	background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #fff), color-stop(0.5, #F1FDF9), color-stop(1, #D4FAED)); /* Saf4+, Chrome */
+}
+.header .header-tel {
+	margin-left: 4.75%;
+}
+.header .header-tel input {
+	width: 50%;
+	padding: 1.25%;
+	font-size: 2rem;
+	border: 1px solid #288FD9;
+	background-image: -moz-linear-gradient(top, #fff, #E5E8EA); /* Firefox */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(0.5, #FDFDFD), color-stop(1, #E5E8EA)); /* Saf4+, Chrome */
+}
+.header .header-content-form {
+	margin: 3.125% 8.75% 0;
+	padding-bottom: 3.75%;
+}
+.header .header-submit {
+	margin: 5% auto 0;
+	width: 22%;
+	height: 6.25%;
+	background: url(./images/icon-btn-submit.png) no-repeat;
+	background-size: contain;
+	border: none;
+	text-indent: -9999px;
+	cursor: pointer;
+}
+.footer {
+	padding-top: 2.5%;
+	padding-bottom: 21.25%;
+	width: 100%;
+	height: 30%;
+	background-color: #fff;
+	color: #444;
+}
+.footer a {
+	text-decoration: none;
+	color: #0055A5;
+}
+.footer .footer-items {
+	width: 84%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.footer .footer-item {
+	float: left;
+	margin-bottom: 1.25%;
+}
+.footer .footer-hotline {
+	width: 100%;
+	padding-left: 35%;
+	background: url(./images/icon-tel.jpg) no-repeat;
+	background-size: contain;
+}
+.footer .footer-service {
+	width: 100%;
+	padding-left: 35%;
+	background: url(./images/icon-headset.jpg) no-repeat;
+	background-size: contain;
+}
+.footer .footer-hotline span,
+.footer .footer-service span {
+	display: block;
+	line-height: 1.2;
+	font-size: 1.4rem;
+}
+.footer .footer-link {
+	width: 136%;
+	margin-right: 6%;
+}
+.footer .footer-link li {
+	margin-bottom: 0.5%;
+	padding-left: 26%;
+	line-height: 1.5;
+	background: url(./images/icon-link.jpg) no-repeat;
+	background-size: contain;
+	font-size: 1.4rem;
+}
+.footer .footer-f {
+	width: 134%;
+}
+.footer .footer-f li {
+	margin-bottom: 0.5%;
+	padding-left: 18%;
+	line-height: 1.4;
+	background: url(./images/icon-f.png) no-repeat;
+	background-size: contain;
+	font-size: 1.4rem;
+}

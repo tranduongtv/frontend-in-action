@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>barChart</title>
+	<style type="text/css">
+	#barChart{margin:50px 0 0 200px; width: 500px; height:500px;}
+	.axis text{font:14px sans-serif;}
+	.axis path{fill:none;}
+	.axis path,.axis line{stroke:#ddd; shape-rendering:crispEdges;}
+	.text{color: #000; font-size: 24px; z-index: 10; opacity: 1;}
+	</style>
+	<script type="text/javascript" src="./barChart/d3.v3.min.js"></script>
+</head>
+<body>
+	<div id="barChart"></div>
+
+	<script type="text/javascript">
+	
+		//d3.select('#barChart').append('svg').attr('class','axis').attr('width',900).attr('height',30).append("g").attr('transform','translate(0,30)').call(d3.svg.axis);
+		var margin = {top: 20, right: 0, bottom: 20, left: 0},
+		width = 960 - margin.left - margin.right,
+		height = 500 - margin.top - margin.bottom;
+
+		var x0 = d3.scale.ordinal().domain([100,200,300,400,500]).rangeBands([0,500]);  //←xaxis data
+		var xaxis = d3.svg.axis().scale(x0).orient('bottom');
+
+		var y0 = d3.scale.linear().domain([]).range([400,0]);
+		var yaxis = d3.svg.axis().scale(y0).orient('left');
+
+		var z = d3.scale.category10();
+
+		var data=[[100],[300],[400],[200]]; //←chart data
+		var yData = ['America','Brazze','China','Russia'];  //←yaxis data
+
+		var svg = d3.select('#barChart').append('svg').attr('width','600px').attr('height','500px');
+		//xAxis
+		svg.append('g').
+			attr('class','x axis').
+			attr("transform", "translate(0,400)").
+			call(xaxis);
+		//yAxis
+		svg.append('g').
+			attr('class','y axis').
+			call(yaxis);
+		//title
+		var title = svg.append('g').
+			style('text-anchor','end');
+
+		for(var i=0;i<yData.length;i++){
+			title.append('text')
+			.attr('x',-10)
+			.attr('y',50*i+120)
+			.attr('class','title')
+			.append('tspan')
+			.text(yData[i]);
+		}
+
+		svg.append("g")
+		  .attr('transform','translate(0,-440)')
+		  .selectAll("g")
+		    .data(data)
+		  .enter().append("g")
+		    .style("fill", function(d, i) { return z(i); })
+		    .attr("transform", function(d, i) { return "translate(0," +d/4+ ")"; })
+		  .selectAll("rect")
+		    .data(function(d) { return d; })
+		  .enter().append("rect")
+		    .attr("width", function(d){return d;})
+		    .attr("height", 40)
+		    .attr("x", 0)
+		    .attr("y", function(d,i) {return height + d/3+20; })
+		    .append('text').text(function(d){return d;})
+
+	</script>
+
+	<script>
+
+		var options={
+			container : '#barchart',  
+			xAxis:{ 
+				categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania']
+			},
+			series:[{
+	            name: 'Year 1800',
+	            data: [107, 31, 635, 203, 2]
+	        }, {
+	            name: 'Year 1900',
+	            data: [133, 156, 947, 408, 6]
+	        }, {
+	            name: 'Year 2008',
+	            data: [973, 914, 4054, 732, 34]
+	        }]
+	    };
+	    //BarChart(options);
+
+	</script>
+</body>
+</html>

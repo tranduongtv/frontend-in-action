@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>highchart type - funnel</title>
+</head>
+<body>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/modules/funnel.js"></script>
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+	<div id="container" style="min-width: 410px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+
+	<script>
+
+	$(function () {
+	    
+	    $('#container').highcharts({
+	        chart: {
+	            type: 'funnel',
+	            marginRight: 0
+	        },
+	        title: {
+	            text: 'Sales funnel',
+	            x: -50
+	        },
+	        plotOptions: {
+	            funnel: {
+	                width: 200,
+	                height: 200
+	            },
+	            series: {
+	                dataLabels: {
+	                    enabled: true,
+	                    format: '<b>{point.name}</b> ({point.y:,.0f})',
+	                    color: 'black',
+	                    softConnector: true
+	                },
+	                neckWidth: '10%',
+	                neckHeight: '5%'
+	                
+	                //-- Other available options
+	                // height: pixels or percent
+	                // width: pixels or percent
+	            }
+	        },
+	        legend: {
+	            enabled: false
+	        },
+	        series: [{
+	            name: 'Unique users',
+	            center: ['20%','10%'],
+	            data: [                
+	                ['Finalized',    846],
+	                ['Website visits',   15654],                
+	                ['Invoice sent',    976],
+	                ['Downloads',       4064],
+	                ['Requested price list', 1987]
+	            ]
+	        },{
+	            name: 'Unique ugsers',
+	            center: ['60%','10%'],
+	            data: [                
+	                ['Fingalized',    849],
+	                ['Website gvisits',   14654],                
+	                ['Invoicge sent',    956],
+	                ['Downlgoads',       4036],
+	                ['Requegsted price list', 1897]
+	            ]
+	        }]
+	    });
+	});
+	</script>
+
+</body>
+</html>

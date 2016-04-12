@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Generated Content and Counters</title>
+	<style>
+		.container {
+			/* Set a counter named cnt to 0 */
+			counter-reset: cnt;
+
+			position: relative;
+			text-align: center;
+			padding: 20px 0;
+			width: 420px;
+			height: 160px;
+			margin: 0 auto;
+		}
+		.container:before {
+			display: block;
+			content: 'Hover over these items:';
+			font-size: 18px;
+			font-weight: bold;
+			text-align: center;
+			padding: 5px;
+		}
+		.container span {
+			display: inline-block;
+			padding: 2px 6px;
+			background-color: #78CCD2;
+			color: #186C72;
+			border-radius: 4px;
+			margin: 3px;
+			cursor: default;
+		}
+		.container span::after {
+			counter-increment: cnt;
+			content: " #" counter(cnt);
+			display: inline-block;
+			padding: 4px;
+		}
+		.container span::before {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			content: attr(data-title);
+			color: #666;
+
+			opacity: 0;
+
+			-webkit-transition: opacity 0.4s;
+			transition:opacity 0.4s;
+		}
+		.container span:hover::before {
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<span data-title="I have a wonderful title">This is item</span>
+		<span data-title="These titles are shown only using CSS, no JavaScript is used!">This is item</span>
+		<span data-title="Hello there!">This is item</span>
+		<span data-title="Generated content is awwesome!">This is item</span>
+	</div>
+</body>
+</html>

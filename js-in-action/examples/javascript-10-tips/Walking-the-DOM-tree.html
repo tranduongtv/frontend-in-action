@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Walking the DOM tree</title>
+	<style>
+		div {
+		    color: white;
+		    background-color: #93d0ea;
+		    font-family: sans-serif;
+		    width: 180px;
+		    text-align: center;
+		    padding: 10px;
+		    margin: 5px;
+		}
+	</style>
+</head>
+<body>
+	<p>Click on the objects to see their parent and children elements</p>
+
+	<div id="snakes">
+		Snakes
+		<ul id="venomous">
+			Venomous
+			<li>Cobra</li>
+			<li>Rattlesnake</li>
+		</ul>
+		
+		<ul id="non-venomous">
+			Non venomous
+			<li>Python</li>
+			<li>Anaconda</li>
+		</ul>
+	</div>
+
+	<p>Click on any of the birds to see its siblings</p>
+
+	<div>
+		Birds
+		<ul id="birds">
+			<li>Flamingo</li>
+			<li>Seagull</li>
+			<li>Raven</li>
+			<li>Dodo</li>
+		</ul>
+	</div>
+	<script>
+		var snakes = document.querySelector('#snakes');
+		var birds = document.querySelector('#birds');
+
+		snakes.addEventListener('click', function(e) {
+			var parent = e.target.parentNode;
+
+			console.log('Parent: ' + parent.id);
+			console.log('children: ');
+
+			var children = e.target.children;
+
+			for (var i = children.length - 1; i >= 0; i--) {
+				console.log(children[i].textContent);
+			}
+		});
+
+		birds.addEventListener('click', function(e) {
+			var previous = e.target.previousElementSibling;
+
+			if (previous) {
+				console.log('Previous siblings: ' + previous.textContent);
+			}
+
+			var next = e.target.nextElementSibling;
+
+			if (next) {
+				console.log('Next sibling: ' + next.textContent);
+			}
+
+			console.log('All siblings: ');
+
+			Array.prototype.filter.call(e.target.parentNode.children, function(child) {
+				if (child != e.target) {
+					console.log(child.textContent);
+				}
+			});
+		});
+	</script>
+</body>
+</html>

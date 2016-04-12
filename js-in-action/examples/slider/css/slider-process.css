@@ -1,0 +1,69 @@
+/*reset default style*/
+
+body, div, ul, li {
+    padding: 0;
+    margin: 0;
+}
+li {
+    list-style: none;
+}
+
+/*set custome style*/
+
+.slide{
+	position: relative;
+	width: 100%;
+	min-width: 1024px;
+	height: 675px;
+}
+.slide-items{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.slide-item{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+}
+.slide-one{
+	background-image: url(../images/banner0.jpg);
+}
+.slide-two{
+	background-image: url(../images/banner1.jpg);
+}
+.slide-btn div{
+	position: absolute;
+	top: 50%;
+	height: 70px;
+	width:70px;
+	cursor: pointer;
+}
+.slide-left{
+	left: 50px;
+	background: url(../images/left.png);
+}
+.slide-right{
+	right: 50px;
+	background: url(../images/right.png);
+}
+.slide-guide{
+	position: absolute;
+	left: 45%;
+	bottom: 90px;
+}
+.slide-guide ul li{
+	float: left;
+	color: #fff;
+	font-size: 0;
+	width: 24px;
+	height: 8px;
+	margin: 0 2px;
+	background-color: #fff;
+	cursor: pointer; 
+}
+.slide-guide ul li.active{
+	background-color: #5DB93C;
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习一：tab选项卡</title>
+	<style>
+	*{margin: 0; padding: 0;}
+	li{list-style: none;}
+	a{text-decoration: none; color: #000;}
+	#title{width: 95%; margin: 0 auto;}
+	#title li{float: left; width: 30%; text-align: center; margin: 0 10px; height: 30px; background: #ccc; line-height: 30px;}
+	#title li.current{background: #ddd;}
+	#title li a{display: block; width: 100%; height: 100%;}
+	#content{clear: both; width: 95%; margin: 0 auto;}
+	.content{display: none; width: 100%; height: 300px; background: #efefef; text-align: center;}
+	</style>
+</head>
+<body>
+	<ul id="title">
+		<li class="current"><a href="#">tab0</a></li>
+		<li><a href="#">tab1</a></li>
+		<li><a href="#">tab2</a></li>
+	</ul>
+	<div id="content">
+		<div class="content" style="display:block;">content-0</div>
+		<div class="content">content-1</div>
+		<div class="content">content-2</div>
+	</div>
+	<script type="text/javascript">
+		var oTitle=document.getElementById('title');
+		var aLi=oTitle.getElementsByTagName('li');
+		var oContent=document.getElementById('content');
+		var aContent=oContent.getElementsByTagName('div');
+
+		for(var i=0,len=aLi.length;i<len;i++){
+			aLi[i].index=i;
+			aLi[i].onclick=function(){
+				var _this=this;
+				for(var i=0,len=aLi.length;i<len;i++){
+					aLi[i].className="";
+					aContent[i].style.display="none";
+				}
+				_this.className="current";
+				aContent[_this.index].style.display="block";
+
+				return false;
+			};
+		}
+
+	</script>
+</body>
+</html>

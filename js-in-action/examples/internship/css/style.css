@@ -1,0 +1,14 @@
+body,div,p,ul,li,ol,h1,h2,h3,h4,h5,h6,form,dl,dt,dd{margin: 0; padding: 0;}
+li{list-style: none;}
+a{text-decoration: none; color: #000;}
+#title{width: 86%; margin:10px auto 0;}
+#title li{float: left; display: inline; width: 12%; text-align: center; margin: 0 10px; height: 30px; background: #ccc; line-height: 30px;}
+#title li.current{background: #ddd;}
+#title li a{display: block; width: 100%; height: 100%;}
+#content{clear: both; min-width: 380px; margin: 0 auto;}
+.content{display: none; width: 100%; height: 500px; background: #efefef; text-align: center;}
+.show{display: block;}
+.form{width: 50%; margin: 20px auto; border: 1px solid #ccc; padding: 10px;}
+.form p{height: 30px; line-height: 30px;}
+.point{text-align: center;}
+svg{background: #fff;}

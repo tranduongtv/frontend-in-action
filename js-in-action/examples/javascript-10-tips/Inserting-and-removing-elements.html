@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Inserting and removing elements</title>
+</head>
+<body>
+	<button>Add fries to lunch</button>
+	<button>Add cheese to sandwich</button>
+	<button>Remove pickles</button>
+
+	<h3>My Lunch</h3>
+	<ul id="lunch">
+		<li><h4>My sandwich</h4></li>
+		<li>Bread</li>
+		<li id="pickles">Pickles</li>
+		<li id="Beef">Beef</li>
+		<li>Mayo</li>
+		<li>Bread</li>
+	</ul>
+	<script>
+		var lunch = document.querySelector('#lunch');
+
+		var addFires = function() {
+
+			var fries = document.createElement('div');
+			fries.innerHTML = '<li><h4> Fries </h4></li>'
+
+			lunch.appendChild(fries);
+		};
+
+		var addCheese = function() {
+			var beef = document.querySelector('#Beef');
+			var topSlice = document.createElement('li');
+			var bottomSlice = document.createElement('li');
+
+			bottomSlice.innerHTML = topSlice.innerHTML = 'Cheese';
+
+			beef.parentNode.insertBefore(topSlice, beef);
+			beef.parentNode.insertBefore(bottomSlice, beef.nextSibling);
+		};
+
+		var removePickles = function() {
+			var pickles = document.querySelector('#pickles');
+
+			if (pickles) {
+				pickles.parentNode.removeChild(pickles);
+			}
+		}
+
+		var btn = document.querySelectorAll('button');
+
+		btn[0].addEventListener('click', addFires);
+		btn[1].addEventListener('click', addCheese);
+		btn[2].addEventListener('click', removePickles)
+	</script>
+</body>
+</html>

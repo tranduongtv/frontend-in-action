@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">	
+	<link rel="stylesheet" href="reset.css">
+	<style>
+		body {
+			background-color: #F5F5F5;
+		}
+		.item {
+			background-color: #fff;
+			padding: 24px 20px 10px 12px;
+			width: 636px;
+			margin: 10px auto 0;
+			overflow: hidden;
+		}
+		.item h3 {
+			color: #000;
+			font-family: 'Microsoft YaHei';
+			font-size: 16px;
+			padding-bottom: 24px;
+			border-bottom: 1px solid #EFEFEF;
+			margin-bottom: 28px;
+		}
+		.main {
+			font-size: 14px;
+		}
+		.content::before, .content::after {
+			clear: both;
+			visibility: hidden;
+			height: 0;
+			display: block;
+			content: '';
+		}
+		.time, .line {
+			padding-bottom: 30px;
+			position: relative;
+		}
+		.time {
+			width: 74px;
+			float: left;
+			padding-right: 24px;
+		}
+		.time::after {
+			content: '';
+			position: absolute;
+			right: -6px;
+			top: 6px;
+			border-radius: 50%;
+			border: 6px solid #BBB;
+		}
+		.line {
+			width: 475px;
+			float: left;
+			padding-left: 28px;
+			word-wrap: break-word; 
+		}
+		.line::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 6px;
+			border-left: 1px solid #BBB;
+			height: 100%;
+		}
+		.content:last-child .line::after {
+			border: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="item">
+	    <h3>项目大事记</h3>
+	    <div class="main project-events">
+	
+	        <div class="content">
+	            <div class="time">2014-07-02</div>
+	            <div class="line"><span> ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgdfg</span>
+	            </div>
+	        </div>
+	        <div class="content">
+	            <div class="time">2014-07-02</div>
+	            <div class="line"><span>dfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgdfg</span>
+	            </div>
+	        </div>
+	        <div class="content">
+	            <div class="time">2014-07-02</div>
+	            <div class="line"><span>fdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgdfg</span>
+	            </div>
+	        </div>
+	        <div class="content">
+	            <div class="time">2014-07-02</div>
+	            <div class="line"><span>dfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgdfg</span>
+	            </div>
+	        </div>
+	        <div class="content">
+	            <div class="time">2014-07-02</div>
+	            <div class="line"><span>dfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgddfd ffdgdfg</span>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</body>
+</html>

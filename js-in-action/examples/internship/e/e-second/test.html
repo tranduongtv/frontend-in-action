@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="./js/util/extend.js"></script>
+</head>
+<body>
+    <script>
+    function Test() {
+
+    }
+
+    jh.util.extend(Test.prototype, {
+
+        onSubmit: function(cb) {
+            console.log('onSubmit launch');
+            this.cb = cb;
+        },
+
+        submit: function() {
+            console.log('submit launch')
+                // this.onSubmit();
+            this.cb();
+        }
+    });
+
+    var test = new Test();
+
+    test.onSubmit(function() {
+        console.log('cb has been launch.');
+    });
+
+    test.submit();
+
+    // console.log('onSubmit launch');
+    // console.log('submit launch')
+    // console.log('cb has been launch.');
+    </script>
+</body>
+</html>

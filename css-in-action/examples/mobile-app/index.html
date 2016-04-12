@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>白蘭氏健關素</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<link rel="stylesheet" href="./css/reset.css" />
+	<link rel="stylesheet" href="./css/index.css" />
+	<script>
+		(function () {
+			var clientWidth = document.documentElement.clientWidth;
+			var relative = clientWidth / 20 * 16 / 10;
+
+			function setStyleValue (css_file_id,labname,param) {
+		        var tar;
+		        var rss;
+		        var style;
+		        
+		        tar = document.styleSheets[css_file_id];
+		        rss = tar.cssRules?tar.cssRules : tar.rules;
+		        
+		        for(var i = 0; i < rss.length; i++) {
+		            style = rss[i];
+		            if(style.selectorText.toLowerCase() === labname.toLowerCase()) {
+		                style.style[param.attr] = param.value;
+		            }
+		        }
+		    }
+
+		    setStyleValue(1, 'html', {attr: 'font-size', value: relative + '%'});
+		})();
+	</script>
+</head>
+<body>
+	<div class="header">
+		<div class="header-content">
+			<img src="./css/images/title-bg.png" alt="完成問卷即賞$50網上優惠券" style="width:100%;"/>
+			<p class="header-tips">多謝閣下對白蘭氏®產品的支持，我們誠摯邀請你為稍前登記的白蘭氏®健關素試用體驗做心得分享。</p>
+			<ul>
+				<li>
+					<div>
+						<p><span class="header-order">01</span>你覺得產品有用嗎？<span class="header-star">*</span></p>
+						<ul class="header-options" id="qa01">
+							<li class="header-radio" data-flag="yes">有</li>
+							<li class="header-radio" data-flag="no">沒有</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<div>
+						<p><span class="header-order">02</span>你會否介紹產品給朋友？<span class="header-star">*</span></p>
+						<ul class="header-options" id="qa02">
+							<li class="header-radio" data-flag="yes">會</li>
+							<li class="header-radio" data-flag="no">不會</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<div>
+						<p><span class="header-order">03</span>試用過後，你覺得健關素可以產生以下哪些保健功效？<span class="header-star">*</span><span class="header-multiselect">（可多選）</span></p>
+						<ul class="header-options" id="qa03">
+							<li class="header-checkbox" data-flag="0">舒緩勞損</li>
+							<li class="header-checkbox" data-flag="1">減慢關節退化</li>
+							<li class="header-checkbox" data-flag="2">改善關節靈活度</li>
+							<li class="header-checkbox" data-flag="3">功效不明顯</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<div>
+						<p><span class="header-order">04</span>其他意見<span class="header-star">*</span></p>
+						<p class="header-textarea">
+							<textarea id="qa04" cols="30" rows="10"></textarea>
+						</p>
+						<p class="header-thanks">為衷心答謝你的支持，我們為你準備了尊享$50優惠券。健關素令你回復年輕關節，行動更敏捷。如果你有興趣，千祈唔好錯過啦。請選擇優惠券換領的方式：</p>
+						<ul class="header-options" id="qa05">
+							<li class="header-radio active" data-flag="tel">手機</li>
+							<li class="header-radio" data-flag="email">電郵</li>
+						</ul>
+						<p class="header-tel"><input type="text" id="links"/></p>
+					</div>
+				</li>
+			</ul>
+			<div class="header-content-form">
+				<p><span class="header-star">*</span>星號爲必填項</p>
+				<p class="header-submit" id="submitBtn">
+					<button>提交</button>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<ul class="footer-items">
+			<li class="footer-item" style="margin-right:10%;">
+				<div class="footer-hotline">
+					<span>訂購熱線</span>
+					<span><a href="tel:26652665">2665 2665</a></span>
+				</div>
+			</li>
+			<li class="footer-item" style="margin-right:12%;">
+				<div class="footer-service">
+					<span>客服服務熱線</span>
+					<span><a href="tel:25069121">2506 9121</a></span>
+				</div>
+			</li>
+			<li class="footer-item" style="margin-right:20%;">
+				<ul class="footer-link">
+					<li><a href="#">白蘭氏®網站</a></li>
+					<li><a href="#">白蘭氏®購物網站</a></li>
+				</ul>
+			</li>
+			<li class="footer-item">
+				<ul class="footer-f">
+					<li><a href="#">白蘭氏®</a></li>
+					<li><a href="#">白蘭氏®健開素</a></li>
+					<li><a href="#">白蘭氏®燕窩</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<script src="./js/index.js"></script>
+</body>
+</html>

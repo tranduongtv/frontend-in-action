@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Attaching and removing event listeners</title>
+	<style>
+		.green {
+			color: green;
+		}
+
+		.zoomed {
+			cursor: pointer;
+			font-size: 23px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<button>允许放大</button>
+		<button>禁止放大</button>
+	</div>
+	<p>点击下面任一个名字颜色将变成绿色</p>
+	<ul>
+		<li>Chewbacca</li>
+		<li>Han Solo</li>
+		<li>Luke</li>
+		<li>Boba fett</li>
+	</ul>
+	<script>
+		var btn = document.querySelectorAll('button');
+		var list = document.querySelector('ul');
+
+		btn[0].addEventListener('click', function() {
+			list.addEventListener('mouseover', enlarge);
+		});
+		btn[1].addEventListener('click', function() {
+			list.removeEventListener('mouseover', enlarge);
+		});
+
+		function enlarge() {
+			list.classList.add('zoomed');
+			list.addEventListener('mouseout', function() {
+				list.classList.remove('zoomed');
+			});
+		}
+
+		list.addEventListener('click', function(e) {
+			e.target.classList.add('green');
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Media Queries</title>
+	<style>
+		.container {
+			width: 900px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.main-section {
+			background-color: #CDEBC4;
+			color: #6D8B64;
+			width: 520px;
+			float: left;
+			height: 500px;
+		}
+		.sidebar {
+			background-color: #ccc;
+			width: 350px;
+			float: right;
+			height: 400px;
+		}
+		.container p {
+			padding-top: 100px;
+			text-align: center;
+		}
+		.note {
+			text-align: center;
+			padding-top: 60px;
+			font-style: italic;
+		}
+
+		@media (max-width: 900px) {
+			.container {
+				width: 100%;
+				transition: width 1s;
+			}
+			.main-section,
+			.sidebar {
+				width: auto;
+				margin-bottom: 20px;
+				float: none;
+				transition: width 1s;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="sidebar">
+			<p>This is the sidebar</p>
+		</div>
+		<div class="main-section">
+			<p class="note">The main content of the article goes here</p>
+		</div>
+	</div>
+</body>
+</html>

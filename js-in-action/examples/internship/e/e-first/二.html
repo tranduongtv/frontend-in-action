@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习二：tab选项卡</title>
+	<style>
+	*{margin: 0; padding: 0;}
+	li{list-style: none;}
+	a{text-decoration: none; color: #000;}
+	#title{width: 95%; margin: 0 auto;}
+	#title li{float: left; width: 30%; text-align: center; margin: 0 10px; height: 30px; background: #ccc; line-height: 30px;}
+	#title li.current{background: #ddd;}
+	#title li a{display: block; width: 100%; height: 100%;}
+	#content{clear: both; width: 95%; margin: 0 auto;}
+	.content{display: none; width: 100%; height: 300px; background: #efefef; text-align: center;}
+	</style>
+</head>
+<body>
+	
+	<ul id="title">
+		<li class="current"><a href="#tab-0">tab0</a></li>
+		<li><a href="#tab-1">tab1</a></li>
+		<li><a href="#tab-2">tab2</a></li>
+	</ul>
+	<div id="content">
+		<div class="content" style="display:block;">content-0</div>
+		<div class="content">content-1</div>
+		<div class="content">content-2</div>
+	</div>
+
+	<script type="text/javascript">
+	//获取hash值中的数字值
+	function getHashNum(hashes){
+		var index=hashes.indexOf('-')+1;
+		var num=hashes.substring(index);
+		return num;
+	}
+	//hash值变化触发事件
+	function hashDeal(){		
+		var aLi=document.getElementById('title').getElementsByTagName('li');
+		var aDiv=document.getElementById('content').getElementsByTagName('div');
+		for(var i=0,len=aDiv.length;i<len;i++){
+			aLi[i].className="";
+			aDiv[i].style.display="none";
+		}
+		if(location.hash){
+			var hashes=location.hash;
+			var num=getHashNum(hashes);
+			aLi[num].className="current";
+			aDiv[num].style.display="block";
+		}else{
+			aLi[0].className="current";
+			aDiv[0].style.display="block";
+		}
+	};
+	/*兼容ie6与ie7浏览器*/
+	function hashDealIE(){
+		var oldHref=location.hash || '#tab-0';
+		setInterval(function(){
+			if(oldHref == location.hash){
+				return false;
+			}else{
+				oldHref=location.hash;
+				hashDeal();
+			}
+		},200);
+	};
+
+	/*页面加载时监听href中的hash值*/
+	window.onload=function(){
+	 	hashDeal();
+	}
+	/*页面hash值改变时触发的事件*/
+	if(window.onhashchange){
+		window.onhashchange=hashDeal;
+	}else{
+		hashDealIE();
+	}
+	
+	</script>
+</body>
+</html>

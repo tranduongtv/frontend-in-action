@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Event库测试</title>
+	<script type="text/javascript" src="./js/util/extend.js"></script>
+	<script type="text/javascript" src="./js/lib/event.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		function Test(){		
+		}
+
+		jh.util.extend(Test.prototype,jh.lib.Event);
+
+		var test = new Test();
+ 
+		test.on('submit', function() {
+		    console.log('cb has been launch.');
+		});
+		 
+		test.on('hello', function(a, b, c, d, e) {
+			console.log(a, b, c, d, e);
+		});
+
+		test.off('submit');
+		 
+		test.trigger('submit');
+		// console.log('cb has been launch.');
+		 
+		test.trigger('hello', 'w', 'o', 'r', 'l', 'd');
+		// console.log('w', 'o', 'r', 'l', 'd');
+
+	</script>
+</body>
+</html>

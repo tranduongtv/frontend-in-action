@@ -1,0 +1,43 @@
+body,
+div,
+textarea {
+    margin: 0;
+    padding: 0;
+}
+html,
+body,
+.container {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+}
+.header {
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+}
+.container {
+    border-top: 1px solid #CCC;
+}
+textarea,
+#visual {
+    display: inline-block;
+    width: 49%;
+    height: 98%;
+    min-height: 100%;
+    vertical-align: top;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+textarea {
+    border: none;
+    border-right: 1px solid #ccc;
+    resize: none;
+    outline: none;
+    background-color: #f6f6f6;
+    font-size: 14px;
+    font-family: 'Monaco', courier, monospace;
+    padding: 20px;
+    overflow: auto;
+}

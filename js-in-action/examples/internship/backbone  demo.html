@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>backbone学习</title>
+	<script type="text/javascript" src="./js/lib/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="./js/lib/underscore.js"></script>
+	<script type="text/javascript" src="./js/lib/backbone.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+
+    // $(function(){
+    //     var ListView=Backbone.View.extend({
+    //     	el : $('body'),
+
+    //     	render : function(){
+    //     		$(this.el).append('<ul><li>hello</li></ul>');
+    //     	},
+
+    //     	initialize : function(){
+    //     		_.bindAll(this,'render');
+    //     		this.render();
+    //     	}
+
+    //     })
+    //     var listView = new ListView();
+    // });
+
+
+    // $(function(){
+    //     var ListModel = Backbone.Model.extend({
+    //         defaults : {
+    //             'part1' : 'hello',
+    //             'part2' : 'world'
+    //         }
+    //     });
+    //     var ListCollection = Backbone.Collection.extend({
+    //         model : ListModel
+    //     });
+    //     var ListView1=Backbone.View.extend({
+    //         el : $('body'),
+
+    //         render : function(){
+    //             var self = this;
+    //             $(this.el).append('<button id="btn">Add a item</button>');
+    //             $(this.el).append('<ul></ul>');
+    //             _(this.collection.models).each(function(item){
+    //                 self.appendItem(item);
+    //                 alert(item);
+    //             },this);
+    //         },
+
+    //         initialize : function(){
+    //             _.bindAll(this,'render','addItem','appendItem');
+    //             this.counter = 0;
+    //             this.collection = new ListCollection();
+    //             this.collection.bind('add',this.appendItem);
+    //             this.render();
+    //         },
+
+    //         events : {
+    //             'click button#btn': 'addItem'
+    //         },
+
+    //         addItem : function(){
+    //             this.counter++;
+    //             var item=new ListModel();
+    //             item.set({
+    //                 'part2' : item.get('part2')+this.counter
+    //             });
+    //             this.collection.add(item);
+    //         },
+
+    //         appendItem : function(item){
+    //             $('ul',this.el).append('<li>'+item.get('part1')+" "+item.get('part2')+'</li>');
+    //         }
+    //     });
+    //     var listView1 = new ListView1();
+    // });
+
+
+    $(function(){
+
+        var Item = Backbone.Model.extend({
+            defaults :{
+                part1 : 'hello',
+                part2 : 'world'
+            }
+        });
+
+        var ItemView = Backbone.View.extend({
+            tagName : 'li',
+            initialize : function(){
+                _.bindAll(this,'render');
+            },
+            render : function(){
+                $(this.el).append('<span>'+this.model.get('part1')+' '+this.model.get('part2')+'</span>');
+                return this;
+            }
+        });
+
+        var List = Backbone.Collection.extend({
+            model : Item
+        });
+        
+        var ListView = Backbone.View.extend({
+            
+            el : 'body',
+
+            initialize : function(){
+                _.bindAll(this,'render','addItem','appendItem');
+                this.collection = new List();
+                this.collection.bind('add',this.appendItem);
+                this.counter = 0;
+                this.render();
+            },
+
+            events : {
+                'click #btn':'addItem'
+            },
+
+            render : function(){
+                var self = this;
+                $(this.el).append('<button id="btn">Add a Item</button>');
+                $(this.el).append('<ul></ul>');
+                _.each(this.collection.models,function(item){
+                    self.appendItem(item);
+                },this);
+            },
+
+            addItem : function(){
+                this.counter++;
+                var item=new Item();
+                item.set({
+                    part2 : item.get('part2')+" "+this.counter
+                });
+                this.collection.add(item);
+            },
+
+            appendItem : function(item){
+                var itemView = new ItemView({
+                    model : item
+                });
+                $('ul',this.el).append(itemView.render().el);
+            }
+
+        });
+
+        var listView = new ListView();
+    });
+	</script>
+</body>
+</html>

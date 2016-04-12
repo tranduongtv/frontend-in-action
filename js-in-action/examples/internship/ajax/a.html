@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>a.html</title>
+	<script type="text/javascript" src="../js/lib/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+	<div id="container"></div>
+	<script type="text/javascript">
+	$('#container').load('b.html',function(data){
+
+		console.log(data);
+
+		var reg = /<script(.+)><\/script>/gim;
+		console.log(data.match(reg));
+
+		$(this).html(data);
+
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Getting and setting element content</title>
+</head>
+<body>
+	<p id="myParagraph">
+		<strong>Which are the best animals?</strong>
+	</p>
+	<button>Koalas</button>
+	<br>
+	<button>Penguins</button>
+	<script>
+		var myText = document.querySelector('#myParagraph');
+		var btn = document.querySelectorAll('button');
+		var myContent = myText.textContent;
+
+		console.log('textContent: ' + myContent);
+
+		btn[0].addEventListener('click', function() {
+			myText.textContent = ' Koalas are the best animals';
+		});
+
+		var myHtml = myText.innerHTML;
+
+		console.log('innerHTML: ' + myHtml);
+
+		btn[1].addEventListener('click', function() {
+			myText.innerHTML = '<button> Penguins are the best animals </button>';
+		});
+	</script>
+</body>
+</html>

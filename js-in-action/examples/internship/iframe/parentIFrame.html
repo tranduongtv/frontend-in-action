@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Parent Iframe</title>
+	<script type="text/javascript">
+		function changeColor() {
+		        var doc;
+
+		        if (document.all){//IE
+		                doc = document.frames["frame"].document;
+		        }else{//Firefox    
+		                doc = document.getElementById("frame").contentDocument;
+		        }
+
+		        doc.getElementById("cFrame").style.color="blue";
+		}
+		window.onload = function() {
+			changeColor();
+		} 
+	</script>
+</head>
+<body>
+	<iframe id = "frame" name = "frame" src = "childIFrame.html" width = "400" height="400">	
+</body>
+</html>

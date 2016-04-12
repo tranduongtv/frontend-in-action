@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Box Sizing</title>
+	<style>
+		.container {
+			text-align: center;
+		}
+		.container div {
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+
+			width: 120px;
+			height: 120px;
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		.el1 {
+			color: #524480;
+			background-color: #B2A4E0;
+		}
+		.el2 {
+			padding: 8px;
+			border: 10px solid #9ec551;
+			background-color: #fff;
+		}
+		.el3 {
+			padding: 32px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="el1">Element 1</div>
+		<div class="el2">Element 2</div>
+		<div class="el3">Element 3</div>
+	</div>
+</body>
+</html>

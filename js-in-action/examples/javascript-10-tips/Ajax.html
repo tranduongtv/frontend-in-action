@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax</title>
+</head>
+<body>
+	<p>采用两种方式实现Ajax效果</p>
+	<ul>
+		<li>原生直接实现</li>
+		<li>借助reqwest库</li>
+	</ul>
+	<script>
+		var request = new XMLHttpRequest();
+
+		request.open('GET', './source/response.html', true);
+
+		request.onload = function() {
+			if ( request.readyState === 4) {
+				if (request.status === 200) {
+					console.log(request.responseText);
+				} else {
+					console.error(request.statusText);
+				}
+			}
+		}
+
+		request.onerror = function() {
+			console.error(request.statusText);
+		}
+
+		request.send(null);
+	</script>
+	<script src="./js/reqwest.js"></script>
+	<script>
+		reqwest({
+			url: './source/response.html',
+			method: 'get',
+			error: function(err) {
+				//
+			},
+			success: function(resp) {
+				console.log(resp);
+			}
+		})
+	</script>
+</body>
+</html>

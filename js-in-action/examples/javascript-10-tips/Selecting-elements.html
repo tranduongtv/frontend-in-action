@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Selecting elements</title>
+</head>
+<body>
+	<ul>
+		<li class="monsters">Nessy</li>
+		<li class="monsters">Big foot</li>
+		<li class="monsters">La chupacabra</li>
+	</ul>
+	<script>
+		// 使用document.querySelector获取第一个匹配元素
+		var lochNess = document.querySelector('.monsters');
+		console.log("It's from Scotland - " + lochNess.textContent);
+
+		// 使用document.querySelectorAll获取所有匹配元素
+		var scary = document.querySelectorAll('.monsters');
+		console.log('Hide and seek champions: ');
+		for (var i = 0, length = scary.length; i < length; i++) {
+		    console.log(scary[i].innerHTML);
+		}
+	</script>
+</body>
+</html>

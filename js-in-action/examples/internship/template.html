@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>template方法测试</title>
+	<script type="text/javascript" src="./js/util/template.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+	var str = '<li><span><%= content %></span></li>';
+	
+	var htmlCreator = jh.util.template(str);
+	 
+	var html = htmlCreator({
+		'content':  'Hello, World'
+	});
+
+	console.log(html);
+	</script>
+</body>
+</html>
